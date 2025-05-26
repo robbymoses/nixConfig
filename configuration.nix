@@ -61,6 +61,8 @@
      wallust
      spotify-player
      playerctl
+     spotify
+     jq
    ];
 
   # Hyprland
