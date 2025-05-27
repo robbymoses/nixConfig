@@ -11,6 +11,7 @@
       ./hyprland.nix
       ./pipewire.nix
       ./bluetooth.nix
+      ./twingate.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -63,6 +64,9 @@
      playerctl
      spotify
      jq
+     zsh
+     dbeaver-bin
+     brave
    ];
 
   # Hyprland
