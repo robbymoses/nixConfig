@@ -12,6 +12,7 @@
       ./pipewire.nix
       ./bluetooth.nix
       ./twingate.nix
+      ./docker.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -20,7 +21,8 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
+  services.thermald.enable = true; # Manage Intel CPU Heat
+  services.tlp.enable = true; # Manage Power Settings
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -43,6 +45,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rmoses = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
      ];
@@ -67,6 +70,9 @@
      zsh
      dbeaver-bin
      brave
+     devbox
+     direnv
+     clickup
    ];
 
   # Hyprland
@@ -76,6 +82,7 @@
   };
   
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
  
   # Fonts
   fonts.packages = with pkgs; [
