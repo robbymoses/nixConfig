@@ -8,6 +8,7 @@ let
       obsidian 
       spotify
       vscode
+      kitty
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

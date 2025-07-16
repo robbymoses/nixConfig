@@ -10,7 +10,7 @@
   ];
 
   # Define the Hostname
-  networking.hostName = "operari";
+  networking.hostName = "versatilis";
 
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
