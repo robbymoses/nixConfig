@@ -9,6 +9,7 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    withUWSM = true;
   };
 
   services.greetd = {
@@ -24,12 +25,13 @@
     hyprpaper
     hyprlock
     dunst 
-    kitty
     rofi-wayland
     waybar
     gnome-icon-theme
   ];
   
+  security.pam.services.hyprlock = {};
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
