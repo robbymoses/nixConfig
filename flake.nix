@@ -40,6 +40,7 @@
   {
     nixosConfigurations = {
       operari = loadHost "operari";
+      versatilis = loadHost "versatilis";
     };
   };
 }
