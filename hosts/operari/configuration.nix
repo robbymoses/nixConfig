@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../modules/twingate.nix
+    ../../modules/components/twingate.nix
     ../../modules/components/hyprland.nix
     ../../modules/components/bluetooth.nix
     ../../modules/components/docker.nix
@@ -18,6 +18,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  terminalApps.enabledGroups = [ "work" ];
+  terminalAppGroups.enabledGroups = [ "work" ];
   guiApps.enabledGroups = [ "work" ];
 }

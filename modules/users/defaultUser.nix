@@ -7,7 +7,7 @@ in
   config.users.users.${defaultUser} = {
     isNormalUser = true;
     description = "Me, Myself, and I";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
   };
 }

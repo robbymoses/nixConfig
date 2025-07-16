@@ -4,4 +4,5 @@
     ./configuration.nix
     ./hardware-configuration.nix
   ];
+  features = [ "hyprland" ];
 }

@@ -3,25 +3,26 @@
 let
   terminalAppGroups = {
     # Core terminal applications, always included when importing
-    core = with pkgs; [ 
+    core = (with pkgs; [ 
       vim
-    ]; ++ with pkgsStable; [
+      git
+    ]) ++ (with pkgsStable; [
       # Back up option for stable packages
-    ];
+    ]);
 
     # Work specific applications
-    work = with pkgs; [  
-      
-    ]; ++ with pkgsStable; [
+    work = (with pkgs; [  
+      google-cloud-sdk
+    ]) ++ (with pkgsStable; [
       # Back up option for stable packages
-    ];
+    ]);
 
     # Personal applications
-    personal = with pkgs; [ 
+    personal = (with pkgs; [ 
       
-    ]; ++ with pkgsStable; [
+    ]) ++ (with pkgsStable; [
       # Back up option for stable packages
-    ];
+    ]);
   };
 
   selectedGroups = config.terminalAppGroups.enabledGroups or [];

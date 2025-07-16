@@ -3,28 +3,28 @@
 let
   guiAppGroups = {
     # Core GUI applications, always included when importing
-    core = with pkgs; [ 
+    core = (with pkgs; [ 
       firefox
       obsidian 
       spotify
       vscode
-    ]; ++ with pkgsStable; [
+    ]) ++ (with pkgsStable; [
       # Back up option for stable packages
-    ];
+    ]);
 
     # Work specific applications
-    work = with pkgs; [  
-      google-cloud-sdk
-    ]; ++ with pkgsStable; [
+    work = (with pkgs; [  
+
+    ]) ++ (with pkgsStable; [
       # Back up option for stable packages
-    ];
+    ]);
 
     # Personal applications
-    personal = with pkgs; [ 
+    personal = (with pkgs; [ 
       clickup  
-    ]; ++ with pkgsStable; [
+    ]) ++ (with pkgsStable; [
       # Back up option for stable packages
-    ];
+    ]);
   };
 
   selectedGroups = config.guiApps.enabledGroups or [];

@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ hyprlandInput, config, pkgs, ... }:
 
 {
   nix.settings = {
@@ -8,7 +8,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = hyprlandInput.packages.${pkgs.system}.hyprland;
     withUWSM = true;
   };
 

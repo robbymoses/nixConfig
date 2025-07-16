@@ -1,8 +1,8 @@
 { config, pkgs, pkgsStable, lib, ... }:
 
 let
-  userOption = import ../lib/userOption.nix { inherit lib; };
-  appendUserGroups = import ../lib/appendUserGroups.nix { inherit lib config; };
+  userOption = import ./lib/userOption.nix { inherit lib; };
+  appendUserGroups = import ./lib/appendUserToGroup.nix { inherit lib config; };
 in
 {
   imports = [
@@ -16,14 +16,18 @@ in
     system.stateVersion = "25.05";
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
+
 
     time.timeZone = "America/Chicago";
     i18n.defaultLocale = "en_US.UTF-8";
 
-    users.defaultUser = "me";
+    users.defaultUser = "rmoses";
+    programs.zsh.enable = true;
 
     networking.networkmanager.enable = true;
-    users.users.${config.users.defaultUser}.extraGroups = appendUserGroups [ "networkmanager" ];
+    #users.users.${config.users.defaultUser}.extraGroups = 
+    #  appendUserGroups { inherit lib config; groupsToAdd = [ "networkmanager" ]; };
 
     services.openssh.enable = true;
   };
