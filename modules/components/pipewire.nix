@@ -1,9 +1,5 @@
+{ pkgs, ... }:
 {
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-  services.blueman.enable = true;
   security.rtkit.enable = true;
   services.pulseaudio.enable = false;
   services.pipewire = {
@@ -11,6 +7,9 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+  ];
 }

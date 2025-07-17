@@ -4,7 +4,7 @@
   imports = [
     ../../modules/components/twingate.nix
     ../../modules/components/hyprland.nix
-    ../../modules/components/bluetooth.nix
+    ../../modules/components/pipewire.nix
     ../../modules/components/docker.nix
     ../../modules/terminalApps.nix
     ../../modules/guiApps.nix

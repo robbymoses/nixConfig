@@ -6,6 +6,7 @@ let
     core = (with pkgs; [ 
       vim
       git
+      usbutils
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
