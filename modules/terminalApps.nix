@@ -5,7 +5,6 @@ let
     # Core terminal applications, always included when importing
     core = (with pkgs; [ 
       vim
-      git
       usbutils
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages

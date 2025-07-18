@@ -2,18 +2,23 @@
 
 let
   applyTaggedConfigs = import ./lib/applyTaggedConfigs.nix { inherit lib; };
+  mergedConfigFields = import ./lib/mergedConfigFields.nix { inherit lib; };
 
   taggedConfigs = [
     {
       tags = [ "core" ];
       config = {
-        environment.systemPackages = with pkgs; [ git ];
+        environment.systemPackages = with pkgs; [ 
+          git 
+        ];
       };
     }
     {
       tags = [ "fonts" ];
       config = {
-        fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+        fonts.packages = with pkgs; [ 
+          nerd-fonts.jetbrains-mono 
+        ];
       };
     }
   ];
@@ -36,5 +41,5 @@ in {
     '';
   };
 
-  config = mergedConfig;
+  config = mergedConfigFields mergedConfig;
 }
