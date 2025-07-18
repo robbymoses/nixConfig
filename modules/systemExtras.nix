@@ -18,11 +18,13 @@ let
     }
   ];
 
+  userEnabledTags = config.systemExtras.enabledTags or [];
+  
   # Final merged config from entries matching the enabled tags
   mergedConfig = applyTaggedConfigs {
     name = "systemExtras";
     entries = taggedConfigs;
-    enabledTags = lib.unique ([ "core" ] ++ config.systemExtras.enabledTags);
+    enabledTags = lib.unique ([ "core" ] ++ userEnabledTags);
   };
   
 in {
