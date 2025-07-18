@@ -28,11 +28,6 @@ in
     networking.networkmanager.enable = true;
     #users.users.${config.users.defaultUser}.extraGroups = 
     #  appendUserGroups { inherit lib config; groupsToAdd = [ "networkmanager" ]; };
-
-    services.openssh.enable = true;
-    
-    fonts.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-    ];
+  
   };
 }
