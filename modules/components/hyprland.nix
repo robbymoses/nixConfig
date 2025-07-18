@@ -28,6 +28,7 @@
     rofi-wayland
     waybar
     gnome-icon-theme
+    bibata-cursors
   ];
   
   security.pam.services.hyprlock = {};

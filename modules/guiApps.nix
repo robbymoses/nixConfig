@@ -9,6 +9,7 @@ let
       spotify
       vscode
       kitty
+      dbeaver-bin
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
