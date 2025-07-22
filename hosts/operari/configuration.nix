@@ -3,7 +3,7 @@
 {
   imports = [
     ../../modules/components/twingate.nix
-    ../../modules/components/hyprlandSuite.nix
+    ../../modules/hyprlandSuite.nix
     ../../modules/components/pipewire.nix
     ../../modules/components/docker.nix
     ../../modules/components/bluetooth.nix
