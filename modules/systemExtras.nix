@@ -14,6 +14,14 @@ let
       };
     }
     {
+      tags = [ "dotfiles" ];
+      config = {
+       environment.systemPackages = with pkgs; [
+        stow
+       ];
+      };
+    }
+    {
       tags = [ "fonts" ];
       config = {
         fonts.packages = with pkgs; [ 

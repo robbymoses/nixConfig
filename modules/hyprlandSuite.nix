@@ -26,7 +26,12 @@
     hyprlock
     hyprpanel 
     rofi-wayland
+    # Break Out into desktopUtils.nix (most are hyprpanel reqs)
     bibata-cursors
+    wl-clipboard
+    brightnessctl
+    libgtop
+    upower
   ];
   
   security.pam.services.hyprlock = {};

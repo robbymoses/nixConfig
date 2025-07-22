@@ -3,9 +3,10 @@
 {
   imports = [
     ../../modules/components/twingate.nix
-    ../../modules/components/hyprland.nix
+    ../../modules/components/hyprlandSuite.nix
     ../../modules/components/pipewire.nix
     ../../modules/components/docker.nix
+    ../../modules/components/bluetooth.nix
     ../../modules/terminalApps.nix
     ../../modules/guiApps.nix
     ../../modules/systemExtras.nix
@@ -21,5 +22,5 @@
 
   terminalAppGroups.enabledGroups = [ "work" ];
   guiApps.enabledGroups = [ "work" ];
-  systemExtras.enabledTags = [ "fonts" ];
+  systemExtras.enabledTags = [ "fonts" "dotfiles" ];
 }

@@ -9,6 +9,8 @@ let
       jq
       fzf
       ripgrep
+      neovim
+      git
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
