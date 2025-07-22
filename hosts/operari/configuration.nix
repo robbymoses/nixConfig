@@ -8,6 +8,7 @@
     ../../modules/components/docker.nix
     ../../modules/terminalApps.nix
     ../../modules/guiApps.nix
+    ../../modules/systemExtras.nix
   ];
 
   # Define the Hostname
@@ -20,4 +21,5 @@
 
   terminalAppGroups.enabledGroups = [ "work" ];
   guiApps.enabledGroups = [ "work" ];
+  systemExtras.enabledTags = [ "fonts" ];
 }
