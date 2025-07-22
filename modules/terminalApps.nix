@@ -6,6 +6,9 @@ let
     core = (with pkgs; [ 
       vim
       usbutils
+      jq
+      fzf
+      ripgrep
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
