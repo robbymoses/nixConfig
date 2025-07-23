@@ -11,6 +11,7 @@ let
       ripgrep
       neovim
       git
+      bc
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

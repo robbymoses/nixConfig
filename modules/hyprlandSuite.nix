@@ -21,18 +21,28 @@
       };
     };
   };
+  boot.kernelParams = [
+    "quiet"
+    "loglevel=0"
+    "systemd.show_status=false"
+    "udev.log_priority=3"
+  ]; 
+
   environment.systemPackages = with pkgs; [
     hyprpaper
     hyprlock
     hyprpanel 
     rofi-wayland
+    xdg-desktop-portal
+    ags
     # Break Out into desktopUtils.nix (most are hyprpanel reqs)
     bibata-cursors
     wl-clipboard
     brightnessctl
     libgtop
-    upower
   ];
+
+  services.upower.enable = true;
   
   security.pam.services.hyprlock = {};
 
