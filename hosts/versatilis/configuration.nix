@@ -2,12 +2,13 @@
 
 {
   imports = [
-    ../../modules/components/hyprland.nix
+    ../../modules/hyperlandSuite.nix
     ../../modules/components/bluetooth.nix
     ../../modules/components/pipewire.nix
     ../../modules/components/docker.nix
     ../../modules/terminalApps.nix
     ../../modules/guiApps.nix
+    ../../modules/systemExtras.nix
     ./custom/module/duo_kb_udev.nix
   ];
 
@@ -22,6 +23,7 @@
 
   terminalAppGroups.enabledGroups = [ "personal" ];
   guiApps.enabledGroups = [ "personal" ];
+  systemExtras.enabledTags = [ "fonts" ];
 
   # Custom scripts
   # environment.etc."udev/keyboard_attach.sh" = {
