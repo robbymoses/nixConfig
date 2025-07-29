@@ -9,8 +9,11 @@ let
       tags = [ "core" ];
       config = {
         environment.systemPackages = with pkgs; [ 
-          git 
+          git
+          tlp 
         ];
+        services.tlp.enable = true;
+        services.thermald.enable = true;
       };
     }
     {
