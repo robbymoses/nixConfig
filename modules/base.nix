@@ -26,8 +26,5 @@ in
     programs.zsh.enable = true;
 
     networking.networkmanager.enable = true;
-    #users.users.${config.users.defaultUser}.extraGroups = 
-    #  appendUserGroups { inherit lib config; groupsToAdd = [ "networkmanager" ]; };
-  
   };
 }

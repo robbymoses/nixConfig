@@ -4,5 +4,8 @@
     ./configuration.nix
     ./hardware-configuration.nix
   ];
-  features = [ "hyprland" ];
+  
+  username = "rmoses";
+
+  features = [ "hyprland" "home-manager" ];
 }

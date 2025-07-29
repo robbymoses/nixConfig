@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../modules/hyperlandSuite.nix
+    ../../modules/hyprlandSuite.nix
     ../../modules/components/bluetooth.nix
     ../../modules/components/pipewire.nix
     ../../modules/components/docker.nix
@@ -19,12 +19,24 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   terminalAppGroups.enabledGroups = [ "personal" ];
   guiApps.enabledGroups = [ "personal" ];
   systemExtras.enabledTags = [ "fonts" ];
+  
+  environment.systemPackages = with pkgs; [
+    bitwarden-cli
+  ];
 
+  # systemd.user.services.bw-ssh-agent = {
+  #   description = "Bitwarden SSH Agent";
+  #   after = [ "network.target" ];
+  #   wantedBy = [ "default.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.bitwarden-cli}/bin/bw-ssh-agent";
+  #     Restart = "on-failure";
+  #   };
+  # };
   # Custom scripts
   # environment.etc."udev/keyboard_attach.sh" = {
   #   source = ./custom/scripts/keyboard_attach.sh;
