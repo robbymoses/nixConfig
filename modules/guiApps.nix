@@ -8,8 +8,10 @@ let
       obsidian 
       spotify
       vscode
+      code-cursor
       kitty
       dbeaver-bin
+      discord
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
