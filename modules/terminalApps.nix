@@ -8,10 +8,12 @@ let
       usbutils
       jq
       fzf
+      fd
       ripgrep
       neovim
       git
       bc
+      zellij
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
