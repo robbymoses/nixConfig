@@ -12,6 +12,10 @@ let
       kitty
       dbeaver-bin
       discord
+      alacritty
+      ghostty
+      xterm
+      chromium
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

@@ -14,6 +14,7 @@ let
       git
       bc
       zellij
+      claude-code
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
