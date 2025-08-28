@@ -15,6 +15,9 @@ let
       bc
       zellij
       claude-code
+      tree
+      helix
+      zoxide
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

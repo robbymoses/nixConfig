@@ -9,6 +9,7 @@ let
       spotify
       vscode
       code-cursor
+      catppuccin-cursors.mochaSapphire
       kitty
       dbeaver-bin
       discord

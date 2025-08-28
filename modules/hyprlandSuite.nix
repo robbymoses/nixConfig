@@ -33,7 +33,7 @@
     hyprlock
     hyprpanel 
     rofi-wayland
-    xdg-desktop-portal
+    xdg-desktop-portal-hyprland
     ags
     # Break Out into desktopUtils.nix (most are hyprpanel reqs)
     bibata-cursors
