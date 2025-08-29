@@ -1,0 +1,64 @@
+{ pkgs, ... }:
+{
+  imports = [
+    ./ada-lovelace.nix
+    ../../../modules/components/hybrid-graphics.nix
+  ];
+
+  # Enable NVIDIA drivers
+  services.xserver.videoDrivers = [ "nvidia" ];
+  
+  # Enable hybrid graphics power management
+  services.hybrid-graphics = {
+    enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+  
+  hardware.nvidia = {
+    # Enable modesetting for Wayland compatibility
+    modesetting.enable = true;
+    
+    # Enable power management (helps with hybrid graphics)
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+    
+    # Enable PRIME for hybrid graphics offload
+    prime = {
+      # Use PRIME offload mode - Intel by default, NVIDIA on demand
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      
+      # GPU bus IDs
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+    
+    # Enable nvidia-settings
+    nvidiaSettings = true;
+  };
+  
+  # Environment variables for proper GPU handling
+  environment.variables = {
+    # Default to Intel, allow NVIDIA offload when needed
+    DRI_PRIME = "0";  # Use Intel by default
+  };
+  
+  # Useful packages for GPU management
+  environment.systemPackages = with pkgs; [
+    nvidia-vaapi-driver  # For hardware video acceleration
+    vulkan-tools         # For Vulkan support testing
+    glxinfo             # For OpenGL info
+    
+    # Create wrapper scripts for explicit GPU usage
+    (writeShellScriptBin "nvidia-run" ''
+      __NV_PRIME_RENDER_OFFLOAD=1 __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only exec "$@"
+    '')
+    
+    (writeShellScriptBin "intel-run" ''
+      DRI_PRIME=0 exec "$@"
+    '')
+  ];
+}

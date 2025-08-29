@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./gpu
+    ../../modules/common-hardware/pc/laptop
     ../../modules/components/twingate.nix
     ../../modules/hyprlandSuite.nix
     ../../modules/components/pipewire.nix
@@ -19,13 +21,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  hardware.graphics.enable = true;
-  hardware.nvidia= {
-    modesetting.enable = true;  
-    open = true;
-  
-    powerManagement.enable = true;
+  hardware.graphics = {
+    enable = true;
   };
+  # hardware.graphics.enable = true;
+  # hardware.nvidia= {
+  #   modesetting.enable = true;  
+  #   open = true;
+  
+  #   powerManagement.enable = true;
+  # };
   terminalAppGroups.enabledGroups = [ "work" ];
   guiApps.enabledGroups = [ "work" ];
   systemExtras.enabledTags = [ "fonts" "dotfiles" ];
