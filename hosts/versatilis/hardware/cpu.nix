@@ -4,9 +4,6 @@
   imports = [
     ./gpu.nix
   ];
-
-  # Intel CPU configuration for Ultra 9 185H (Meteor Lake)
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   
   # Power management and thermal configuration
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
