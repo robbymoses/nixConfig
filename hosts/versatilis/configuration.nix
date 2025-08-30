@@ -15,11 +15,14 @@
   # Define the Hostname
   networking.hostName = "versatilis";
 
+  hardware.enableRedistributableFirmware = true;
+
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
 
+  # App Groups to Install
   terminalAppGroups.enabledGroups = [ "personal" ];
   guiApps.enabledGroups = [ "personal" ];
   systemExtras.enabledTags = [ "fonts" ];
