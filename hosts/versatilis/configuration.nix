@@ -14,6 +14,13 @@
 
   # Define the Hostname
   networking.hostName = "versatilis";
+  
+  networking.extraHosts =
+  ''
+  127.0.0.1 clienta.veyonex.test
+  127.0.0.1 clientb.veyonex.test
+  127.0.0.1 clientc.veyonex.test
+  '';
 
   hardware.enableRedistributableFirmware = true;
 
@@ -26,6 +33,8 @@
   terminalAppGroups.enabledGroups = [ "personal" ];
   guiApps.enabledGroups = [ "personal" ];
   systemExtras.enabledTags = [ "fonts" ];
+  hardware.i2c.enable = true; 
+  services.flatpak.enable = true;
   
   environment.systemPackages = with pkgs; [
     bitwarden-cli

@@ -17,6 +17,7 @@ let
       ghostty
       xterm
       chromium
+      thunderbird
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

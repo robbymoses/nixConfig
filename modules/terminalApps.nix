@@ -18,6 +18,8 @@ let
       tree
       helix
       zoxide
+      helix
+      devcontainer
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
