@@ -17,15 +17,12 @@ let
       ghostty
       xterm
       chromium
-<<<<<<< HEAD
       thunderbird
-=======
       brave
       vivaldi
       bruno
       kiro
       zed-editor
->>>>>>> fed1a84 (sync)
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

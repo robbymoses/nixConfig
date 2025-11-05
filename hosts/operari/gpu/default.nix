@@ -43,7 +43,7 @@
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver  # For hardware video acceleration
     vulkan-tools         # For Vulkan support testing
-    glxinfo             # For OpenGL info
+    mesa-demos             # For OpenGL info
     
     # Create wrapper scripts for explicit GPU usage
     (writeShellScriptBin "nvidia-run" ''
