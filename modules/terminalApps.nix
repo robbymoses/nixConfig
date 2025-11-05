@@ -18,7 +18,14 @@ let
       tree
       helix
       zoxide
+<<<<<<< HEAD
       helix
+=======
+      kmonad
+      kanata
+      spotify-player
+      discordo
+>>>>>>> fed1a84 (sync)
       devcontainer
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages

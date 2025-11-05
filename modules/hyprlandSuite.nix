@@ -30,9 +30,10 @@
 
   environment.systemPackages = with pkgs; [
     hyprpaper
+    quickshell
     hyprlock
     hyprpanel 
-    rofi-wayland
+    rofi
     xdg-desktop-portal-hyprland
     ags
     # Break Out into desktopUtils.nix (most are hyprpanel reqs)

@@ -11,6 +11,8 @@ in
     home-manager
   ];
 
+  services.ssh-agent.enable = true;
+
   home = {
     sessionVariables = {
       EDITOR = "nvim";

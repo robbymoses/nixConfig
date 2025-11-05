@@ -10,7 +10,8 @@ let
       config = {
         environment.systemPackages = with pkgs; [ 
           git
-          tlp 
+          tlp
+          hplip 
         ];
         services.tlp.enable = true;
         services.thermald.enable = true;

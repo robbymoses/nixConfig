@@ -12,11 +12,20 @@
     ../../modules/terminalApps.nix
     ../../modules/guiApps.nix
     ../../modules/systemExtras.nix
+    ../../modules/vm.nix
   ];
 
   # Define the Hostname
   networking.hostName = "operari";
-
+  services.flatpak.enable = true;
+  programs.ssh.startAgent = true;
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

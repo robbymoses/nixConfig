@@ -2,26 +2,19 @@
 {
   imports = [
     ./ada-lovelace.nix
-    ../../../modules/components/hybrid-graphics.nix
   ];
 
   # Enable NVIDIA drivers
   services.xserver.videoDrivers = [ "nvidia" ];
   
-  # Enable hybrid graphics power management
-  services.hybrid-graphics = {
-    enable = true;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-  };
   
   hardware.nvidia = {
     # Enable modesetting for Wayland compatibility
     modesetting.enable = true;
     
-    # Enable power management (helps with hybrid graphics)
+    # Enable power management
     powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = false;
     
     # Enable PRIME for hybrid graphics offload
     prime = {

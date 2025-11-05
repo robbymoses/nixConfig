@@ -12,7 +12,27 @@ in
   options = userOption.options;
 
   config = {
+    environment.systemPackages = with pkgs; [
+      # Programming
+      git
+      nodejs_24
+      python312
 
+      # Editors
+      helix
+
+      # Networking
+      curl
+      wget
+
+      # CLI Utils
+      jq
+      ripgrep
+      fd
+      tree
+      htop
+    ];
+    
     system.stateVersion = "25.05";
     hardware.enableRedistributableFirmware = true;
 
