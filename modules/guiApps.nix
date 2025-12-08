@@ -23,6 +23,7 @@ let
       bruno
       kiro
       zed-editor
+      antigravity
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
