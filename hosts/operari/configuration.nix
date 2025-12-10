@@ -29,7 +29,7 @@
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   terminalAppGroups.enabledGroups = [ "work" ];
   guiApps.enabledGroups = [ "work" ];
   systemExtras.enabledTags = [ "fonts" "dotfiles" ];
