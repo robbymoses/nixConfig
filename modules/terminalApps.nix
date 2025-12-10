@@ -4,26 +4,9 @@ let
   terminalAppGroups = {
     # Core terminal applications, always included when importing
     core = (with pkgs; [ 
-      vim
       usbutils
-      jq
-      fzf
-      fd
-      ripgrep
-      neovim
-      git
       bc
-      zellij
-      claude-code
-      tree
-      helix
-      zoxide
-      helix
-      kmonad
-      kanata
       spotify-player
-      discordo
-      devcontainer
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

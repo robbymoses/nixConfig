@@ -18,19 +18,22 @@ in
       nodejs_24
       python312
 
-      # Editors
+      # Editors (I am indecisive)
       helix
+      vim
 
       # Networking
       curl
       wget
 
-      # CLI Utils
+      # Terminal
       jq
       ripgrep
       fd
+      fzf
       tree
       htop
+      zellij
     ];
     
     system.stateVersion = "25.05";

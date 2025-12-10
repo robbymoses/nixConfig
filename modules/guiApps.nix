@@ -4,25 +4,17 @@ let
   guiAppGroups = {
     # Core GUI applications, always included when importing
     core = (with pkgs; [ 
-      firefox
       obsidian 
       spotify
       vscode
-      code-cursor
       catppuccin-cursors.mochaSapphire
       kitty
       dbeaver-bin
       discord
-      alacritty
-      ghostty
-      xterm
       chromium
       thunderbird
       brave
-      vivaldi
       bruno
-      kiro
-      zed-editor
       antigravity
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages

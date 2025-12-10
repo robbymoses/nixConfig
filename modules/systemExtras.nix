@@ -9,7 +9,6 @@ let
       tags = [ "core" ];
       config = {
         environment.systemPackages = with pkgs; [ 
-          git
           tlp
           hplip 
         ];
