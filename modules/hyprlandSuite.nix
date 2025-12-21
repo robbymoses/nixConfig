@@ -33,6 +33,7 @@
     quickshell
     hyprlock
     hyprpanel 
+    ashell
     rofi
     xdg-desktop-portal-hyprland
     ags
