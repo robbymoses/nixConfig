@@ -17,6 +17,7 @@ in
       git
       nodejs_24
       python312
+      pre-commit
 
       # Editors (I am indecisive)
       helix
@@ -27,6 +28,7 @@ in
       wget
 
       # Terminal
+      nushell
       jq
       ripgrep
       fd

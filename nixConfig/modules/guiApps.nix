@@ -16,6 +16,7 @@ let
       brave
       bruno
       antigravity
+      zed-editor
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);
