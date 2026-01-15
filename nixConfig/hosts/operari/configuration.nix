@@ -13,6 +13,7 @@
     ../../modules/guiApps.nix
     ../../modules/systemExtras.nix
     ../../modules/vm.nix
+    ../../modules/components/noctalia.nix
   ];
 
   # Define the Hostname

@@ -4,5 +4,5 @@
     ./configuration.nix
     ./hardware-configuration.nix
   ];
-  features = [ "hyprland" ];
+  features = [ "hyprland" "noctalia" ];
 }

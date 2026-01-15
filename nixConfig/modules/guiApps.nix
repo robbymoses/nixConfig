@@ -17,6 +17,7 @@ let
       bruno
       antigravity
       zed-editor
+      jetbrains.datagrip
     ]) ++ (with pkgsStable; [
       # Back up option for stable packages
     ]);

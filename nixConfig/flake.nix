@@ -2,20 +2,18 @@
   description = "NixOS Configuration for Running Various Hosts";
 
   inputs = {
+    # System Inputs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    flake-utils.url = "github:numtide/flake-utils";
-    hyprland.url = "github:hyprwm/Hyprland";
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-utils.url = "github:numtide/flake-utils";
+
+    # Feature Inputs
+    hyprland.url = "github:hyprwm/Hyprland";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
   };
 
-  outputs = { self, ... }@inputs: 
+  outputs = { self, ... }@inputs:
     let
       # Helper function: given a nixpkgs input and system, get pkgs set
       pkgsFor = nixpkgsInput: system:
@@ -23,9 +21,9 @@
           inherit system;
           config.allowUnfree = true;
         };
-    
+
       lib = inputs.nixpkgs.lib;
-      
+
       # Helper function: dynamically load a host configuration
       loadHost = host:
         let
@@ -35,29 +33,30 @@
             username = "${hostFlake.username}";
             homeDir = "/home/${hostFlake.username}";
           };
-          
+
           # system is defined in the host's flake.nix
           system = hostFlake.system;
-          
+
           # Setup pkgs, Unstable is default, Stable is a fallback
           pkgsStable = pkgsFor inputs.nixpkgs-stable system;
           pkgs = pkgsFor inputs.nixpkgs system;
-       
+
           # Map feature names to inputs attribute sets
           featureInputs = {
             hyprland = inputs.hyprland;
             home-manager = inputs.home-manager;
+            noctalia = inputs.noctalia;
           };
 
-          extraArgsBase =[ 
+          extraArgsBase =[
            { inherit pkgsStable; }
           ];
-        
+
           extraArgsFeatures = builtins.map (feature:
             if builtins.hasAttr feature featureInputs
               then { "${feature}Input" = featureInputs.${feature}; }
               else {} ) (hostFlake.features or []);
-          
+
           extraArgsFinal = builtins.foldl' lib.recursiveUpdate {} (extraArgsBase ++ extraArgsFeatures);
 
           baseModules = [ ./modules/base.nix ] ++ hostFlake.modules;
@@ -84,8 +83,8 @@
           };
       in {
         nixosConfigurations = {
-        operari = loadHost "operari";
-        versatilis = loadHost "versatilis";
+          operari = loadHost "operari";
+          versatilis = loadHost "versatilis";
        };
-   }; 
-} 
+   };
+}
