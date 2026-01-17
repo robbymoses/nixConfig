@@ -4,6 +4,6 @@
   isNormalUser = true;
   description = "rmoses";
   home = "/home/rmoses";
-  shell = pkgs.zsh;
+  shell = pkgs.nushell;
   extraGroups = [ "wheel" "networkmanager"];
 }
